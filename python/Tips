@@ -1,4 +1,6 @@
 to install python3 on centos
+https://weblabo.oscasierra.net/python3-centos7-yum-install/
+
 first 
 sudo yum install -y https://centos7.iuscommunity.org/ius-release.rpm
 next 
