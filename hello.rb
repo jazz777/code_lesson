@@ -1,2 +1,0 @@
-# Hello World
-puts "hello"
