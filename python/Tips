@@ -1,0 +1,9 @@
+to install python3 on centos
+first 
+sudo yum install -y https://centos7.iuscommunity.org/ius-release.rpm
+next 
+sudo yum install python3
+
+cf)
+yum search python
+
