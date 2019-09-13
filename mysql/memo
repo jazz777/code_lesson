@@ -1,0 +1,108 @@
+https://cloud.google.com/solutions/setup-mysql
+
+password setting needs hash
+
+default 
+id root
+no password
+
+sudo systemctl status mysqld
+
+maybee dafault port 3309
+
+sudo mysql -u root -p
+
+
+insert into user values ('01', 'hoge');
+
+ 
+
+------------------------------------------
+
+sudo yum install python-devel mysql-devel
+
+ 
+
+ 
+
+ 
+
+pip3 install mysql-connector　ng
+
+sudo pip3 install mysql-connector
+
+ 
+
+ 
+
+sudo pip3 install PyMySQL
+
+ 
+
+ 
+
+ 
+
+★mysql-connector　こんなかんじで　
+
+つながらなかった。
+
+ 
+
+-------------------------------------------------------------------------
+
+https://qiita.com/mitch0807/items/f9f6efd4e65a022a8ab9
+
+from urllib.parse import urlparse
+
+import mysql.connector
+
+ 
+
+url = urlparse('mysql://user:pass@localhost:3306/dbname')
+
+ 
+
+conn = mysql.connector.connect(
+
+    host = 'localhost',
+
+    port = 3306,
+
+    user = 'root',
+
+    password = '',
+
+    database = 'test'
+
+)
+
+conn.is_connected()
+
+conn.ping(reconnect=True)
+
+cur = conn.cursor()
+
+cur.execute('SELECT * FROM Tables_in_test')
+
+cur.fetchall()  #=> [(1, 'foo'), (2, 'bar')]
+
+#try:
+
+#    cur.execute('INSERT INTO users (name) VALUES (%s)', ['foo'])
+
+#    conn.commit()
+
+#except:
+
+#    conn.rollback()
+
+#    raise
+
+#
+
+#cur = conn.cursor(dictionary=True)
+
+#
+
+#cur.fetchall()  #=> [{'id': 1, 'name': 'foo'}, {'id': 2, 'name': 'bar'}]
