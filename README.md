@@ -1,3 +1,3 @@
 # code_lesson
-## writig code is beter than reading books
+## Writig Code is beter than Reading Books
 
