@@ -1,0 +1,21 @@
+InstanceType: small
+Ipv6AddressCount: 1
+
+KeyName: String
+
+# (#1) not list
+LaunchTemplat1e: 
+  LaunchTemplateSpecification,
+  LaunchTemplateSpecification2,
+  LaunchTemplateSpecification3
+
+
+# same as (#1) not list
+LaunchTemplate2: LaunchTemplateSpecification
+
+# list 
+LicenseSpecifications: 
+  - LicenseSpecification
+  - LicenseSpecification
+  - LicenseSpecification
+  - LicenseSpecification
