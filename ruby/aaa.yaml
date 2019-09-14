@@ -1,0 +1,7 @@
+ properties : Srorage
+   size:123
+   memory:456
+   ceil {
+    - com:1
+    - com:2
+   }
