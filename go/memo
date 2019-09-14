@@ -1,1 +1,6 @@
 次はこれだな
+go run  hello.go 
+
+go build hello.go 
+./hello  
+
