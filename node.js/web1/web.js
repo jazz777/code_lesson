@@ -10,7 +10,8 @@ var server = http.createServer();
 // definition on Request
 server.on('request',function(req,res) {
     res.writeHead(200,{'Content-Type':'text/plain'});
-    res.write(' Soracom Happy Max,It is running node.js http module !! \n ');
+    res.write(' Easy web server Node js http  module !! \n ');
+/*
     res.write('Soracom Happy Max,It is running node.js http module !! \n ');
     res.write('Soracom Happy Max,It is running node.js http module !! \n ');
     res.write('Soracom Happy Max,It is running node.js http module !! \n ');
@@ -25,6 +26,8 @@ server.on('request',function(req,res) {
     res.write('Soracom Happy Max,It is running node.js http module !! \n ');
     res.write('Soracom Happy Max,It is running node.js http module !! \n ');
     res.write('Soracom Happy Max,It is running node.js http module !! \n ');
+*/
+
     res.end();
 });
 
