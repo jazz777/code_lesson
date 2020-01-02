@@ -1,1 +1,24 @@
-gitの使い方
+git
+
+初期設定
+
+git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
+git config --global core.editor emac
+
+
+debian→ubuntu 
+uname -a で区別可能
+
+クラウドVM
+vncを利用したリモートアクセス（GUI）
+
+
+
+
+
+
+
+
+
+
