@@ -7,6 +7,10 @@ git config --global user.email johndoe@example.com
 git config --global core.editor emac
 
 
+git log    履歴のみ表示
+git log -p 差分も表示
+
+
 debian→ubuntu 
 uname -a で区別可能
 
