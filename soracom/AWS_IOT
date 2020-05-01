@@ -1,1 +1,94 @@
+ユースケース(A) Iotデバイスのイベントをトリガーにある処理を実行する。
+
+ボタンを押すと、EC2を起動する
+
+★登場人物
+
+LTE-M buttton  →　SORACOM(FUNNEL)　→　AWS IOT　→　AWS lambda
+
+★設定概要
+--------------------------------     -----------------------
+Soracomコンソールで設定　　　　　　　　　　AWSコンソールで設定
+--------------------------------     -----------------------
+①SIM設定(登録、グループ）
+②　　　　　　　　　　　　　　　　　　　　　 lambda関数を作る③　　　　　　　　　　　　　　　　　　　　　 AWSIotの設定
+④　　　　　　　　　　　　　　　　　　　　　 AWSIAMの設定
+⑤SORACOM Air for Cellularの設定
+⑥FUNNNELの設定
+⑦LTEbuttonのクリック
+⑧ 　　　　　　　　　　　　　　　　　　　　　 CloudWatchログの確認
+
+----------------------------------------------------------------
+
+
+★設定詳細
+
+①SIM設定(登録、グループ）　＜Soracomの設定＞
+ SIMの初期設定
+ グループ作成　 (例) AWS_IOT
+
+
+②lambdaでEC2を起動する関数を作成する(func1)＜AWSコンソールの設定＞
+（言語はpythonでもNode.js)でも可能
+
+③AWS　IOTの設定　＜AWSコンソールの設定＞
+act→ルール作成
+名前: call_for_lambda (任意の文字列)
+SQL バージョンの使用: 2016-03-23
+ルールクエリステートメント: SELECT * FROM 'button_topic/#'
+※LTE　BUTTONを使う場合の　識別子（固定）
+
+  アクション　どういくアクションをするか（今回の場合はlambda関数　func1）
+  
+確認　アクティベーション
+
+
+④IAMユーザの設定　＜AWSコンソールの設定＞
+　 “AWSIoTDataAccess” ポリシーを付与した、新規IAMユーザを作成する
+  　APIアクセスにチェックをいれて、アクセスKEY、アクセスIDを取得する。
+
+
+　※SIMに割り当てられているグループ(AWS_IOT)に対する設定です。
+⑤ SORACOM Air for Cellular 設定” 　＜Soracomの設定＞
+ ・[バイナリパーサー設定] を “ON” 
+ ・フォーマット: @button
+
+
+⑥ “SORACOM Funnel 設定” 　＜Soracomの設定＞
+ ・“ON” 
+ ・転送先サービス: AWS IoT
+ ・転送先 URL: https://<AWS IoT Core の設定でメモしたカスタムエンドポイント>/button_topic/data
+ ・認証情報
+ 　認証情報 
+  　ID: soracom_funnel_to_awsiotcore_cred1　
+   　　　※判別できる名前であれば、IAMユーザに一致させる必要はない
+　　AWS Access Key ID: <AWS IAM でメモしたアクセス ID>
+　　AWS Secret Access Key: <AWS IAM でメモしたシークレットアクセスキー>
+ 
+⑦LTE　BUTTONのクリック　＜LTE　BUTTON＞
+⑧CloudWatchログの確認　＜AWSコンソールの設定＞
+
+
+補足
+beam
+func　　　
+funnell 
+harvest データを蓄積する
+
+①SIMカードの初期登録
+　グループ設定
+SIMに関する設定はSIM本体にするのではなく、グループに対して実施する
+複数のグループを作成することが可能。
+SIMに割り当てられるグループは一つのみ
+必要に応じて切り替えを実施する。割り当てれれていないグループは無効。
+
+
+
+
+
+
+
+
+
+
 i
