@@ -31,3 +31,11 @@ aws ec2 describe-instances | jq -r -c '.Reservations[].Instances[] | select(.Net
                         
                        
 192.168.1.230   example.com
+
+
+
+
+aws ec2 describe-instances | jq -r '.Reservations | sort_by(.Instances[].Tags[] | select(.Key == "Name").Value) | .[].Instances[] | [(.Tags[] | select(.Key == "Name").Value), .InstanceId, .PublicIpAddress, .PrivateIpAddress, .InstanceType, .LaunchTime, .State.Name] | @csv'
+
+
+
