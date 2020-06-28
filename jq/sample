@@ -1,0 +1,24 @@
+aws ec2 describe-instances | jq '.Reservations[].Instances[].NetworkInterfaces[].Groups[]'
+
+jq の後にフィルター文字列を''で囲んで、記載する
+大雑把にいうと
+. が　一番てっぺん
+.Reservations[]　は　Reservationsリストの中身の一覧を出力
+.Reservations[].Instances[]　は、さらにその名からの　インスタンスリストの一覧を表示する。
+.Reservations[].Instances[].NetworkInterfaces[].Groups[]　は　グループの中身を表示する
+
+結果は以下、ディクショナリっぽいデータが入っている。
+key
+value
+はみづらいので　key　value　のように表示したい場合は　cオプションを使う
+
+
+}
+  "GroupName": "test1",
+  "GroupId": "sg-11111111"
+}
+{
+  "GroupName": "test2",
+  "GroupId": "sg-11111112"
+}
+
