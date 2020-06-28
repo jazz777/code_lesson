@@ -22,3 +22,12 @@ value
   "GroupId": "sg-11111112"
 }
 
+
+$ aws ec2 describe-instances | jq '.Reservations[].Instances[].NetworkInterfaces[].Groups[] | select(.GroupName == "test1")'
+
+
+aws ec2 describe-instances | jq -r -c '.Reservations[].Instances[] | select(.NetworkInterfaces[].Groups[].GroupName == "test1") | .PrivateIpAddress + "\t" + .Tags[].Value'
+　　　　　　　　　　　　　　　　　　　　　　　 インスタンスリストの一覧を出力　　（条件　　　GroupName　　が　test1　）　　IPアドレス　とタグの値を出力
+                        
+                       
+192.168.1.230   example.com
