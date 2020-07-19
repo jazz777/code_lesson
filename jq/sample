@@ -1,0 +1,41 @@
+aws ec2 describe-instances | jq '.Reservations[].Instances[].NetworkInterfaces[].Groups[]'
+
+jq の後にフィルター文字列を''で囲んで、記載する
+大雑把にいうと
+. が　一番てっぺん
+.Reservations[]　は　Reservationsリストの中身の一覧を出力
+.Reservations[].Instances[]　は、さらにその名からの　インスタンスリストの一覧を表示する。
+.Reservations[].Instances[].NetworkInterfaces[].Groups[]　は　グループの中身を表示する
+
+結果は以下、ディクショナリっぽいデータが入っている。
+key
+value
+はみづらいので　key　value　のように表示したい場合は　cオプションを使う
+
+
+}
+  "GroupName": "test1",
+  "GroupId": "sg-11111111"
+}
+{
+  "GroupName": "test2",
+  "GroupId": "sg-11111112"
+}
+
+
+$ aws ec2 describe-instances | jq '.Reservations[].Instances[].NetworkInterfaces[].Groups[] | select(.GroupName == "test1")'
+
+
+aws ec2 describe-instances | jq -r -c '.Reservations[].Instances[] | select(.NetworkInterfaces[].Groups[].GroupName == "test1") | .PrivateIpAddress + "\t" + .Tags[].Value'
+　　　　　　　　　　　　　　　　　　　　　　　 インスタンスリストの一覧を出力　　（条件　　　GroupName　　が　test1　）　　IPアドレス　とタグの値を出力
+                        
+                       
+192.168.1.230   example.com
+
+
+
+
+aws ec2 describe-instances | jq -r '.Reservations | sort_by(.Instances[].Tags[] | select(.Key == "Name").Value) | .[].Instances[] | [(.Tags[] | select(.Key == "Name").Value), .InstanceId, .PublicIpAddress, .PrivateIpAddress, .InstanceType, .LaunchTime, .State.Name] | @csv'
+
+
+

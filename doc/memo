@@ -6,6 +6,27 @@ git config --global user.name "John Doe"
 git config --global user.email johndoe@example.com
 git config --global core.editor emac
 
+git checkout 4ee66a6f77c6f5b03131401d101f3d145ad88f1d file1
+
+あるファイルの過去のcommitをみる
+git log -p file1|grep comm
+commit 4ee66a6f77c6f5b03131401d101f3d145ad88f1d
+commit ef87ccfae12127e6e16b69982f95d3357800ee48
+commit 7c30121fa4e47029c35a5d02c8964c42adc4be5d
+                           
+任意のバージョンに戻せる。
+git checkout 4ee66a6f77c6f5b03131401d101f3d145ad88f1d file1  
+
+ファイル名を指定しないと、でタッチヘッドになる。
+
+                           
+                           
+git checkout -- file1
+
+
+git log    履歴のみ表示
+git log -p 差分も表示
+
 
 debian→ubuntu 
 uname -a で区別可能
