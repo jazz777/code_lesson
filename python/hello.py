@@ -1,18 +1,27 @@
 #!/usr/bin/python3
-# hello から　aws に変更
+
+# print の例
+
 print('hello')
+print('hello'+','+'hello') # ＋で、いくつでも連結可能
 
+# ls []で括る
+lst = ['fujiwara','aws']
+print(type(lst))
+print(lst)
 
+# dictionary {}で括る　key:value
 dicsikaku = {'fujiwara':'aws'}
-type(dicsikaku)
+print(type(dicsikaku))
 print(dicsikaku)
 
+# dictionary
 dicsikaku2 = {'fujiwara':['aws','gcp']}
-type(dicsikaku2)
+print(type(dicsikaku2))
 print(dicsikaku2)
 
 '''
-comments
+commentの書き方
 
 print('hello')
 print('hello')
