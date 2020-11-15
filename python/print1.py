@@ -10,3 +10,18 @@ for n,h in table.items():
 中央寄せしたければ、^
 と表現する。
 """
+print()
+print()
+print()
+
+for a in range(10):
+#    print(a)
+    print('{:5d}{:5d}{:5d}'.format(a,a**2,a**3))
+
+print()
+print()
+print()
+
+for a in range(10):
+#    print(a)
+    print('{:5}{:5}{:5}'.format(a,a**2,a**3))
