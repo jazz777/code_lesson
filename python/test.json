@@ -1,0 +1,23 @@
+{
+	"name": "decompress-targz",
+	"description": "decompress tar.gz plugin",
+	"author": {
+		"name": "Kevin Mårtensson",
+		"email": "kevinmartensson@gmail.com",
+		"url": "https://github.com/kevva"
+	},
+	"engines": {
+		"node": ">=4"
+	},
+	"scripts": {
+		"test": "xo && ava"
+	},
+	"files": [
+		"index.js"
+	],
+	"keywords": [
+		"decompress",
+		"extract",
+		"targz"
+	]
+}

@@ -1,4 +1,3 @@
 function ohayou() {
   alert("Hello!");
-})
-})
+}
