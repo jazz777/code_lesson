@@ -13,12 +13,13 @@ sleep を挟んで、コマンドを順次実行していくような関数の�
 
 改善③
 dynamodb から、読み込む。
-’’’
 
 #print((lambda a:str(a**2+1)+'   nozomi')(10))
 #print((lambda a:'nozomi '*a)(10))
+'''
 
 import time
+
 def func(a):
     print(a,'を起動しています。')
     time.sleep(1)
@@ -29,5 +30,3 @@ def func(a):
     print(a,'を起動しました')
 
 func('ec2')
-
-
