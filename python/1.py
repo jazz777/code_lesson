@@ -29,4 +29,4 @@ def func(a):
     time.sleep(1)
     print(a,'を起動しました')
 
-func('ec2')
+func('gitpod')
