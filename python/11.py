@@ -1,12 +1,14 @@
-# クラス定義
-class Life:
-    def __init__(self):
-        self.a = 3
-        print('Life is short!!')
-    
-    def mix(self):
-        return 5
+class Life:   # クラス定義
 
-nozomi = Life()
-print('nozomi',nozomi.a)
-print(nozomi.mix())
+    def __init__(self):
+        #code run when some one make class instance
+        #self.a = 1000000000000   #definition variabl self.xxx
+        print('yuigahama in kamakura')
+        #pass
+
+    def mix(self):
+        return 'surfin'
+
+
+nozomi = Life
+#print(nozomi.mix())
